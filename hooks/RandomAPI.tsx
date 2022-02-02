@@ -8,6 +8,6 @@ async function fetchData() {
   return json;
 }
 
-export function getRandomVerse() {
+export function useRandomVerse() {
   return useQuery(["RadomVerse"], fetchData);
 }

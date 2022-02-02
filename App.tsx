@@ -1,7 +1,7 @@
-import { RandomScreen } from "screens/RandomScreen";
 import React from "react";
 import { StyleSheet } from "react-native";
 import { QueryClient, QueryClientProvider } from "react-query";
+import RandomScreen from "./screens/RandomScreen";
 
 const queryClient = new QueryClient();
 

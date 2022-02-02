@@ -1,34 +1,37 @@
 import React from "react";
-import { SafeAreaView, StyleSheet, FlatList, Text } from "react-native";
+import { SafeAreaView, StyleSheet, Text, View, Button } from "react-native";
+
 import { Verse } from "../components/Verse";
-import { getRandomVerse } from "../hooks/RandomAPI";
+import { useRandomVerse } from "../hooks/RandomAPI";
 
 const RandomScreen = () => {
-  const { isLoading, isError, data } = getRandomVerse();
+  const { isLoading, isError, data } = useRandomVerse();
 
   if (isLoading) {
-    return <Text>Loading</Text>;
+    return (
+      <View>
+        <Text style={styles.log}>Loading</Text>
+      </View>
+    );
   }
   if (isError) {
-    return <Text>Error</Text>;
+    return (
+      <View>
+        <Text style={styles.log}>Loading</Text>
+      </View>
+    );
   }
-
-  const renderVerse = ({ item }) => (
-    <Verse
-      bookName={item.bookname}
-      chapter={item.chapter}
-      verse={item.verse}
-      text={item.text}
-    />
-  );
 
   return (
     <SafeAreaView style={styles.container}>
-      <FlatList
-        data={data.results}
-        renderItem={renderVerse}
-        keyExtractor={(item) => item.id}
+      <Verse
+        bookName={data.bookname}
+        chapter={data.chapter}
+        verse={data.verse}
+        text={data.text}
       />
+
+      <Button title="Click her for random Verse" onPress={useRandomVerse} />
     </SafeAreaView>
   );
 };
@@ -42,12 +45,17 @@ const styles = StyleSheet.create({
   container: {
     paddingHorizontal: 20,
     marginTop: 20,
+    justifyContent: "center",
   },
   title: {
     fontSize: 32,
   },
   card: {
     margin: 10,
+  },
+  log: {
+    textAlignVertical: "center",
+    textAlign: "center",
   },
 });
 
