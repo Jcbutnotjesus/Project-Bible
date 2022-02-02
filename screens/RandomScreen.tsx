@@ -5,7 +5,7 @@ import { Verse } from "../components/Verse";
 import { useRandomVerse } from "../hooks/RandomAPI";
 
 const RandomScreen = () => {
-  const { isLoading, isError, data } = useRandomVerse();
+  const { isLoading, isError, data, refetch } = useRandomVerse();
 
   if (isLoading) {
     return (
@@ -24,14 +24,9 @@ const RandomScreen = () => {
 
   return (
     <SafeAreaView style={styles.container}>
-      <Verse
-        bookName={data.bookname}
-        chapter={data.chapter}
-        verse={data.verse}
-        text={data.text}
-      />
+      <Verse data={data} />
 
-      <Button title="Click her for random Verse" onPress={useRandomVerse} />
+      <Button title="Click her for random Verse" onPress={refetch} />
     </SafeAreaView>
   );
 };

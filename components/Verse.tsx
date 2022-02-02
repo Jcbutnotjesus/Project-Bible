@@ -1,6 +1,6 @@
 import React from "react";
 import { StyleSheet } from "react-native";
-import { Card, Title, Paragraph } from "react-native-paper";
+import { Card, Title, Paragraph, Headline } from "react-native-paper";
 
 interface Verse {
   bookname: string;
@@ -9,16 +9,25 @@ interface Verse {
   text: string;
 }
 
-export const Verse = ({ bookName, chapter, verse, text }) => (
+export const Verse = ({ data }) => {
+  const { bookname, chapter, verse, text } = data[0]
+  console.log("🚀 ~ file: Verse.tsx ~ line 14 ~ Verse ~ data", data)
+
+
+  return(
+
   <Card style={styles.card}>
     <Card.Content>
-      <Title style={styles.title}>{bookName}</Title>
-      <Paragraph>"chapter {chapter}"</Paragraph>
-      <Paragraph>"Verse {verse}"</Paragraph>
-      <Paragraph>{text}</Paragraph>
+        <Title style={styles.title}>{bookname}</Title>
+        <Headline>Chapter</Headline>
+      <Paragraph>{chapter}</Paragraph>
+        <Headline>Verse</Headline>
+        <Paragraph>{JSON.stringify(verse)}</Paragraph>
+      <Paragraph>{JSON.stringify(text)}</Paragraph>
     </Card.Content>
   </Card>
-);
+)};
+
 const styles = StyleSheet.create({
   item: {
     backgroundColor: "#f9c2ff",
