@@ -26,7 +26,7 @@ const RandomScreen = () => {
     <SafeAreaView style={styles.container}>
       <Verse data={data} />
 
-      <Button title="Click her for random Verse" onPress={refetch} />
+      <Button title="Click here for random Verse" onPress={refetch} />
     </SafeAreaView>
   );
 };
