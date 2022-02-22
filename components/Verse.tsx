@@ -11,17 +11,16 @@ interface Verse {
 
 export const Verse = ({ data }) => {
   const { bookname, chapter, verse, text } = data[0];
-  console.log("🚀 ~ file: Verse.tsx ~ line 14 ~ Verse ~ data", data);
 
   return (
     <Card style={styles.card}>
       <Card.Content>
         <Title style={styles.title}>{bookname}</Title>
-        <Headline>Chapter</Headline>
-        <Paragraph>{chapter}</Paragraph>
-        <Headline>Verse</Headline>
-        <Paragraph>{JSON.stringify(verse)}</Paragraph>
-        <Paragraph>{JSON.stringify(text)}</Paragraph>
+        <Headline style={styles.headline}>Chapter {chapter}</Headline>
+        <Headline style={styles.headline}>
+          Verse {JSON.stringify(verse)}
+        </Headline>
+        <Paragraph style={styles.para}>{JSON.stringify(text)}</Paragraph>
       </Card.Content>
     </Card>
   );
@@ -39,11 +38,22 @@ const styles = StyleSheet.create({
     marginTop: 20,
   },
   title: {
-    fontSize: 32,
+    fontSize: 30,
     textAlign: "center",
-    margin: 20,
+    marginTop: 30,
+    marginBottom: 40,
   },
   card: {
+    margin: 20,
+    height: 500,
+  },
+  para: {
+    fontSize: 20,
+    fontStyle: "italic",
     margin: 10,
+    marginTop: 40,
+  },
+  headline: {
+    margin: 20,
   },
 });

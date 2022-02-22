@@ -41,12 +41,14 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
     marginTop: 20,
     justifyContent: "center",
+    textAlignVertical: "center",
   },
   title: {
     fontSize: 32,
   },
-  card: {
-    margin: 10,
+  verse: {
+    minHeight: 500,
+    marginTop: 20,
   },
   log: {
     textAlignVertical: "center",
