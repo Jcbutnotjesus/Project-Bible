@@ -1,6 +1,6 @@
-# Foobar
+# Bible App
 
-Foobar is a Python library for dealing with word pluralization.
+Bible app is an mobile app to get random verse 
 
 ## Installation
 
@@ -16,8 +16,10 @@ https://expo.dev/@jancornelis/BibleApp
 ![image](https://user-images.githubusercontent.com/94045096/155150721-abe5ad36-33fa-4596-89af-dc489b525bd5.png)
 
 
-##API
+## API
+
 https://labs.bible.org/api_web_service
 
-##Author
+## Author
+
 Jcbutnotjesus
